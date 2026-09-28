@@ -24,8 +24,11 @@ optionally `GEMINI_API_KEY` (images, Lyria music) and `OPENAI_API_KEY` (images w
 
 ## Start
 
+`new_film.sh` sits next to this file (global install: `~/.claude/skills/launch-film/`, project install:
+`./.claude/skills/launch-film/`).
+
 ```sh
-bash ~/.claude/skills/launch-film/new_film.sh <film-dir>     # copies template/, npm install
+bash <this skill's folder>/new_film.sh <film-dir>     # copies template/, npm install
 cd <film-dir> && node scripts/render.mjs stills 1,4,8,12,18 && python3 scripts/sheet.py review/stills review/sheet.jpg 5 400
 ```
 

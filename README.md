@@ -12,10 +12,12 @@ line, because the agent cannot listen. A still-by-still critique loop keeps the 
 ## Install
 
 ```sh
+npx skills add Dwite/launch-film -g        # with the skills CLI (skills.sh); drop -g for one project
+# or
 git clone https://github.com/Dwite/launch-film ~/.claude/skills/launch-film
 ```
 
-Claude Code picks the skill up in every project. Ask for "a launch film for <product>" or run `/launch-film`.
+Claude Code picks the skill up in every project (a global install) or in the one project (a project install). Ask for "a launch film for <product>" or run `/launch-film`.
 
 Requirements: Google Chrome (the renderer points at the macOS path; edit `CHROME` in `template/scripts/render.mjs`
 elsewhere), ffmpeg, Node 18+, Python 3 with Pillow, and [uv](https://docs.astral.sh/uv/). Keys in the environment:
@@ -25,7 +27,7 @@ elsewhere), ffmpeg, Node 18+, Python 3 with Pillow, and [uv](https://docs.astral
 ## Start a film
 
 ```sh
-bash ~/.claude/skills/launch-film/new_film.sh ~/films/my-product
+bash ~/.claude/skills/launch-film/new_film.sh ~/films/my-product    # or ./.claude/skills/launch-film/ for a project install
 cd ~/films/my-product
 node scripts/render.mjs stills 1,4,8,12,18 && python3 scripts/sheet.py review/stills review/sheet.jpg 5 400
 node scripts/render.mjs video --fps 60 --sub 4 --shutter 0.5 --workers 12 --out out/master.mp4
